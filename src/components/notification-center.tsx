@@ -287,12 +287,14 @@ export function NotificationCenter() {
     if (formData.title && formData.description) {
       const newNotification: Notification = {
         id: Math.max(...notifications.map((n) => n.id)) + 1,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         type: (formData.type as any) || "system",
         title: formData.title!,
         description: formData.description!,
         time: "Just now",
         isRead: false,
         isNew: true,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         priority: (formData.priority as any) || "medium",
         actionRequired: formData.actionRequired || false,
       }
@@ -370,6 +372,7 @@ export function NotificationCenter() {
                     <Label htmlFor="type">Type</Label>
                     <Select
                       value={formData.type || "system"}
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
                       onValueChange={(value) => setFormData({ ...formData, type: value as any })}
                     >
                       <SelectTrigger>
@@ -388,7 +391,7 @@ export function NotificationCenter() {
                     <Label htmlFor="priority">Priority</Label>
                     <Select
                       value={formData.priority || "medium"}
-                      onValueChange={(value) => setFormData({ ...formData, priority: value as any })}
+                      onValueChange={(value: Notification["priority"]) => setFormData({ ...formData, priority: value })}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select priority" />

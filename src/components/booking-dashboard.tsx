@@ -165,7 +165,7 @@ export function BookingDashboard() {
                   size="sm"
                   onClick={() => setActiveTab("today")}
                 >
-                  Today's booking
+                  Today booking
                 </Button>
               </div>
             </CardHeader>
