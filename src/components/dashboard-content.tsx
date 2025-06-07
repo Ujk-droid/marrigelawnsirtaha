@@ -122,7 +122,7 @@ export function DashboardContent() {
                 size="sm"
                 onClick={() => setActiveTab("today")}
               >
-                Today's booking
+                Today booking
               </Button>
             </div>
             <Link href="/notifications">
